@@ -1,0 +1,2 @@
+- release 2: do not require the perl package
+  (used perl-base, in case it *does* require perl at all))
