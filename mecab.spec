@@ -4,7 +4,7 @@ Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl):	Jeszcze jeden analizator czê¶ci mowy i morfologii
 Name:		mecab
 Version:	0.79
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/src/%{name}-%{version}.tar.gz
@@ -55,6 +55,7 @@ Statyczna biblioteka MeCab.
 tar xzf %{SOURCE1} -C dic
 
 %build
+cp -f /usr/share/automake/config.sub .
 %configure
 
 %{__make} \
