@@ -17,7 +17,6 @@ Patch1:		%{name}-libdir.patch
 URL:		http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-Requires:	perl-base
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
