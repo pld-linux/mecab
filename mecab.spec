@@ -3,17 +3,18 @@
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl):	Jeszcze jeden analizator czê¶ci mowy i morfologii
 Name:		mecab
-Version:	0.79
-Release:	2
+Version:	0.80
+Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/src/%{name}-%{version}.tar.gz
-# Source0-md5:	d7d4884f4798d9a88989b0b22953240a
+# Source0-md5:	d7d49fbbf431ebec233342a1882798b9
 Source1:	http://chasen.aist-nara.ac.jp/stable/ipadic/ipadic-%{ipadicversion}.tar.gz
 # Source1-md5:	f36d315cae25b086a889b7090c674977
 Patch0:		%{name}-segv.patch
 Patch1:		%{name}-libdir.patch
 URL:		http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/
+BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 Requires:	perl >= 5.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
