@@ -1,10 +1,11 @@
 # TODO: should dictionary (over 60MB) be separated to subpackage or not?
 %define	ipadicversion	2.7.0
+%include	/usr/lib/rpm/macros.perl
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl):	Jeszcze jeden analizator czê¶ci mowy i morfologii
 Name:		mecab
 Version:	0.80
-Release:	1
+Release:	2
 License:	LGPL
 Group:		Libraries
 Source0:	http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/src/%{name}-%{version}.tar.gz
@@ -16,7 +17,7 @@ Patch1:		%{name}-libdir.patch
 URL:		http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
-Requires:	perl >= 5.0
+Requires:	perl-base
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
