@@ -1,16 +1,16 @@
 # TODO: should dictionary (over 60MB) be separated to subpackage or not?
-%define	ipadicversion	2.6.3
+%define	ipadicversion	2.7.0
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl):	Jeszcze jeden analizator czê¶ci mowy i morfologii
 Name:		mecab
-Version:	0.77
+Version:	0.78
 Release:	1
 License:	LGPL
 Group:		Libraries
 Source0:	http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/src/%{name}-%{version}.tar.gz
-# Source0-md5:	5946e65e6718af68ac8905189a0fe814
+# Source0-md5:	cf0245ae3653a97b8dc37107fbb417c2
 Source1:	http://chasen.aist-nara.ac.jp/stable/ipadic/ipadic-%{ipadicversion}.tar.gz
-# Source1-md5:	cd29abb476b98e56c1c5f9886881e601
+# Source1-md5:	f36d315cae25b086a889b7090c674977
 Patch0:		%{name}-segv.patch
 URL:		http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/
 BuildRequires:	libstdc++-devel
@@ -27,7 +27,7 @@ Jeszcze jeden analizator czê¶ci mowy i morfologii.
 Summary:	Header files for MeCab
 Summary(pl):	Pliki nag³ówkowe MeCab
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
 
 %description devel
@@ -40,7 +40,7 @@ Pliki nag³ówkowe MeCab.
 Summary:	Static MeCab library
 Summary(pl):	Statyczna biblioteka MeCab
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static MeCab library.
