@@ -1,3 +1,5 @@
+# TODO: should dictionary (over 60MB) be separated to subpackage or not?
+%define	ipadicversion	2.6.3
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl):	Jeszcze jeden analizator czê¶ci mowy i morfologii
 Name:		mecab
@@ -7,8 +9,9 @@ License:	LGPL
 Group:		Libraries
 Source0:	http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/src/%{name}-%{version}.tar.gz
 # Source0-md5:	c312f2e218f6857dc487662c379d0f6e
-#%define ipadicversion 2.6.0
-#Source1: ipadic-%{ipadicversion}.tar.gz
+Source1:	http://chasen.aist-nara.ac.jp/stable/ipadic/ipadic-%{ipadicversion}.tar.gz
+# Source1-md5:	cd29abb476b98e56c1c5f9886881e601
+Patch0:		%{name}-segv.patch
 URL:		http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/
 BuildRequires:	libstdc++-devel
 Requires:	perl >= 5.0
@@ -47,9 +50,11 @@ Statyczna biblioteka MeCab.
 
 %prep
 %setup -q
+%patch -p1
+
+tar xzf %{SOURCE1} -C dic
 
 %build
-#ln -s ../../ipadic-%{ipadicversion} dic/ipadic-%{ipadicversion}
 %configure
 
 %{__make} \
