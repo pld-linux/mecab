@@ -12,6 +12,7 @@ Source0:	http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/src/%{name}-%{version
 Source1:	http://chasen.aist-nara.ac.jp/stable/ipadic/ipadic-%{ipadicversion}.tar.gz
 # Source1-md5:	f36d315cae25b086a889b7090c674977
 Patch0:		%{name}-segv.patch
+Patch1:		%{name}-libdir.patch
 URL:		http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/
 BuildRequires:	libstdc++-devel
 Requires:	perl >= 5.0
@@ -50,9 +51,11 @@ Statyczna biblioteka MeCab.
 
 %prep
 %setup -q
-%patch -p1
+%patch0 -p1
 
 tar xzf %{SOURCE1} -C dic
+
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
