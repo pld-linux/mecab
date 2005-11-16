@@ -8,13 +8,13 @@ Version:	0.80
 Release:	2
 License:	LGPL
 Group:		Libraries
-Source0:	http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/src/%{name}-%{version}.tar.gz
+Source0:	http://chasen.org/~taku/software/mecab/src/%{name}-%{version}.tar.gz
 # Source0-md5:	d7d49fbbf431ebec233342a1882798b9
 Source1:	http://chasen.aist-nara.ac.jp/stable/ipadic/ipadic-%{ipadicversion}.tar.gz
 # Source1-md5:	f36d315cae25b086a889b7090c674977
 Patch0:		%{name}-segv.patch
 Patch1:		%{name}-libdir.patch
-URL:		http://cl.aist-nara.ac.jp/~taku-ku/software/mecab/
+URL:		http://chasen.org/~taku/software/mecab/
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -85,7 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/lib*.so.*.*.*
 %{_libdir}/mecab
 %{_mandir}/man1/mecab.1*
-%config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/mecabrc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mecabrc
 
 %files devel
 %defattr(644,root,root,755)
