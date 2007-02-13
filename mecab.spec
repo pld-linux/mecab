@@ -2,7 +2,7 @@
 %define	ipadicversion	2.7.0
 %include	/usr/lib/rpm/macros.perl
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
-Summary(pl.UTF-8):   Jeszcze jeden analizator części mowy i morfologii
+Summary(pl.UTF-8):	Jeszcze jeden analizator części mowy i morfologii
 Name:		mecab
 Version:	0.80
 Release:	2
@@ -27,7 +27,7 @@ Jeszcze jeden analizator części mowy i morfologii.
 
 %package devel
 Summary:	Header files for MeCab
-Summary(pl.UTF-8):   Pliki nagłówkowe MeCab
+Summary(pl.UTF-8):	Pliki nagłówkowe MeCab
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	libstdc++-devel
@@ -40,7 +40,7 @@ Pliki nagłówkowe MeCab.
 
 %package static
 Summary:	Static MeCab library
-Summary(pl.UTF-8):   Statyczna biblioteka MeCab
+Summary(pl.UTF-8):	Statyczna biblioteka MeCab
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
