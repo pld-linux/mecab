@@ -8,13 +8,13 @@ Version:	0.80
 Release:	2
 License:	LGPL
 Group:		Libraries
-Source0:	http://chasen.org/~taku/software/mecab/src/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/mecab/%{name}-%{version}.tar.gz
 # Source0-md5:	d7d49fbbf431ebec233342a1882798b9
 Source1:	http://chasen.aist-nara.ac.jp/stable/ipadic/ipadic-%{ipadicversion}.tar.gz
 # Source1-md5:	f36d315cae25b086a889b7090c674977
 Patch0:		%{name}-segv.patch
 Patch1:		%{name}-libdir.patch
-URL:		http://chasen.org/~taku/software/mecab/
+URL:		http://mecab.sourceforge.net/
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
