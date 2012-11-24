@@ -1,20 +1,16 @@
-# TODO: should dictionary (over 60MB) be separated to subpackage or not?
-%define	ipadicversion	2.7.0
 %include	/usr/lib/rpm/macros.perl
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl.UTF-8):	Jeszcze jeden analizator części mowy i morfologii
 Name:		mecab
-Version:	0.80
-Release:	2
-License:	LGPL
+Version:	0.994
+Release:	1
+License:	GPL v2 or LGPL v2.1 or BSD
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/mecab/%{name}-%{version}.tar.gz
-# Source0-md5:	d7d49fbbf431ebec233342a1882798b9
-Source1:	http://chasen.aist-nara.ac.jp/stable/ipadic/ipadic-%{ipadicversion}.tar.gz
-# Source1-md5:	f36d315cae25b086a889b7090c674977
-Patch0:		%{name}-segv.patch
-Patch1:		%{name}-libdir.patch
-URL:		http://mecab.sourceforge.net/
+#Source0Download: http://code.google.com/p/mecab/downloads/list
+Source0:	http://mecab.googlecode.com/files/%{name}-%{version}.tar.gz
+# Source0-md5:	990df7701f33e80688233ab01d4104a0
+Patch0:		%{name}-libexec.patch
+URL:		http://code.google.com/p/mecab/
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -54,10 +50,6 @@ Statyczna biblioteka MeCab.
 %setup -q
 %patch0 -p1
 
-tar xzf %{SOURCE1} -C dic
-
-%patch1 -p1
-
 %build
 cp -f /usr/share/automake/config.sub .
 %configure
@@ -68,6 +60,7 @@ cp -f /usr/share/automake/config.sub .
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/mecab/dic
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
@@ -80,19 +73,27 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README doc/*.html
-%attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
-%{_libdir}/mecab
+%doc AUTHORS BSD COPYING README doc/*.html
+%attr(755,root,root) %{_bindir}/mecab
+%attr(755,root,root) %{_libdir}/libmecab.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libmecab.so.2
+%dir %{_libdir}/mecab
+%attr(755,root,root) %{_libdir}/mecab/mecab-cost-train
+%attr(755,root,root) %{_libdir}/mecab/mecab-dict-gen
+%attr(755,root,root) %{_libdir}/mecab/mecab-dict-index
+%attr(755,root,root) %{_libdir}/mecab/mecab-system-eval
+%attr(755,root,root) %{_libdir}/mecab/mecab-test-gen
+%dir %{_libdir}/mecab/dic
 %{_mandir}/man1/mecab.1*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mecabrc
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_bindir}/mecab-config
+%attr(755,root,root) %{_libdir}/libmecab.so
+%{_libdir}/libmecab.la
 %{_includedir}/mecab.h
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libmecab.a
