@@ -2,13 +2,13 @@
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl.UTF-8):	Jeszcze jeden analizator części mowy i morfologii
 Name:		mecab
-Version:	0.995
+Version:	0.996
 Release:	1
 License:	GPL v2 or LGPL v2.1 or BSD
 Group:		Libraries
 #Source0Download: http://code.google.com/p/mecab/downloads/list
 Source0:	http://mecab.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	36a2a37ddcf3f339edd8ab94c2b3e145
+# Source0-md5:	7603f8975cea2496d88ed62545ba973f
 Patch0:		%{name}-libexec.patch
 URL:		http://code.google.com/p/mecab/
 BuildRequires:	automake
