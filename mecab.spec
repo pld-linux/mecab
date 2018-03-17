@@ -11,6 +11,7 @@ Group:		Libraries
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	7603f8975cea2496d88ed62545ba973f
 Patch0:		%{name}-libexec.patch
+Patch1:		%{name}-libdir.patch
 URL:		https://taku910.github.io/mecab
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
@@ -50,6 +51,7 @@ Statyczna biblioteka MeCab.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
