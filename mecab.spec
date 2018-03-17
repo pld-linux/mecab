@@ -6,11 +6,12 @@ Version:	0.996
 Release:	2
 License:	GPL v2 or LGPL v2.1 or BSD
 Group:		Libraries
-#Source0Download: http://code.google.com/p/mecab/downloads/list
-Source0:	http://mecab.googlecode.com/files/%{name}-%{version}.tar.gz
+#Source0Download: https://taku910.github.io/mecab
+# 0.996 can be found at https://drive.google.com/uc?export=download&id=0B4y35FiV1wh7cENtOXlicTFaRUE
+Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	7603f8975cea2496d88ed62545ba973f
 Patch0:		%{name}-libexec.patch
-URL:		http://code.google.com/p/mecab/
+URL:		https://taku910.github.io/mecab
 BuildRequires:	automake
 BuildRequires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
