@@ -78,12 +78,15 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/mecab
 %attr(755,root,root) %{_libdir}/libmecab.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libmecab.so.2
+%dir %{_libexecdir}/mecab
+%attr(755,root,root) %{_libexecdir}/mecab/mecab-cost-train
+%attr(755,root,root) %{_libexecdir}/mecab/mecab-dict-gen
+%attr(755,root,root) %{_libexecdir}/mecab/mecab-dict-index
+%attr(755,root,root) %{_libexecdir}/mecab/mecab-system-eval
+%attr(755,root,root) %{_libexecdir}/mecab/mecab-test-gen
+%if "%{_libdir}" != "%{_libexecdir}"
 %dir %{_libdir}/mecab
-%attr(755,root,root) %{_libdir}/mecab/mecab-cost-train
-%attr(755,root,root) %{_libdir}/mecab/mecab-dict-gen
-%attr(755,root,root) %{_libdir}/mecab/mecab-dict-index
-%attr(755,root,root) %{_libdir}/mecab/mecab-system-eval
-%attr(755,root,root) %{_libdir}/mecab/mecab-test-gen
+%endif
 %dir %{_libdir}/mecab/dic
 %{_mandir}/man1/mecab.1*
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/mecabrc
