@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	Yet Another Part-of-Speech and Morphological Analyzer
 Summary(pl.UTF-8):	Jeszcze jeden analizator części mowy i morfologii
 Name:		mecab
